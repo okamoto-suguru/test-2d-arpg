@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy2g2kgxv1jrr"]
+
+[ext_resource type="PackedScene" uid="uid://bry4ecbc3m7fe" path="res://components/InteractableBase/_InteractableBase.tscn" id="1_0vgwq"]
+[ext_resource type="Script" uid="uid://bqsvyqcfuntah" path="res://hub/npc/UpgradeNPC.gd" id="2_fvn84"]
+[ext_resource type="Texture2D" uid="uid://kq3pk8s1v2hm" path="res://assets/tilesets/base.png" id="3_5arwu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mjsh"]
+atlas = ExtResource("3_5arwu")
+region = Rect2(48, 2088, 16, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfig0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mjsh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UpgradeNPC" instance=ExtResource("1_0vgwq")]
+script = ExtResource("2_fvn84")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_rfig0")

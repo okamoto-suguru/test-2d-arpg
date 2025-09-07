@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d7ukbt4p756p"]
+
+[ext_resource type="Script" uid="uid://ccs866wwcgntr" path="res://autoload/ResourceManager/ResourceLoader.gd" id="1_srh4w"]
+
+[node name="ResourceManager" type="Node"]
+script = ExtResource("1_srh4w")

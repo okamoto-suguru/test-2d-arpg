@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://cr506s8vbv1gu"]
+
+[ext_resource type="PackedScene" uid="uid://cbk0xmpbftico" path="res://components/Hitbox/hitbox_base.tscn" id="1_qh415"]
+[ext_resource type="Script" uid="uid://d2chh4fl54nmd" path="res://core/ability/AbilityData.gd" id="2_8ff2l"]
+[ext_resource type="AudioStream" uid="uid://baa6dl6cj8ci5" path="res://assets/sounds/effects/maou_se_magic_fire01.wav" id="3_bgmv1"]
+[ext_resource type="AudioStream" uid="uid://wlrtxmx001qq" path="res://assets/sounds/effects/maou_se_battle18.wav" id="4_sgt3x"]
+
+[resource]
+script = ExtResource("2_8ff2l")
+ability_name = "ファイア"
+animation_name = "attack"
+description = "アビリティの説明"
+sfx_activation = ExtResource("3_bgmv1")
+sfx_hit = ExtResource("4_sgt3x")
+duration = 1.0
+target_type = 3
+spawn_origin = 1
+hitbox_scene = ExtResource("1_qh415")
+radius = 300.0
+damage_multiplier = 2.0
+active_start_time = 0.2
+active_end_time = 0.8
+metadata/_custom_type_script = "uid://d2chh4fl54nmd"

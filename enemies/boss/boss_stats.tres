@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=2 format=3 uid="uid://dqjvmehgvsg82"]
+
+[ext_resource type="Script" uid="uid://353v3tsc088s" path="res://core/CharacterStats.gd" id="1_i3qjs"]
+
+[resource]
+script = ExtResource("1_i3qjs")
+max_health = 200
+speed = 50.0
+attack_damage = 20
+karma_drop_amount = 500
+metadata/_custom_type_script = "uid://353v3tsc088s"

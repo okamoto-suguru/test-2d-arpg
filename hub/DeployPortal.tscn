@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvtw1goy6x0rg"]
+
+[ext_resource type="PackedScene" uid="uid://bry4ecbc3m7fe" path="res://components/InteractableBase/_InteractableBase.tscn" id="1_qtpna"]
+[ext_resource type="Script" uid="uid://q5uhm1xvqph3" path="res://hub/DeployPortal.gd" id="2_ck3n8"]
+[ext_resource type="Texture2D" uid="uid://kq3pk8s1v2hm" path="res://assets/tilesets/base.png" id="2_o55xb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck3n8"]
+atlas = ExtResource("2_o55xb")
+region = Rect2(64, 2088, 16, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtd1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck3n8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DeployPortal" instance=ExtResource("1_qtpna")]
+script = ExtResource("2_ck3n8")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_rtd1p")

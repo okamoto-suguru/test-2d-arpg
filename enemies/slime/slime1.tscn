@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6cswb2jeyldo"]
+
+[ext_resource type="PackedScene" uid="uid://44ysp4oerx7w" path="res://enemies/enemy.tscn" id="1_sv735"]
+[ext_resource type="Resource" uid="uid://c1hn8r1p580nn" path="res://enemies/slime/slime1.tres" id="2_6326o"]
+[ext_resource type="Texture2D" uid="uid://c6lxo68uyx7lc" path="res://enemies/slime/slime01_green01_32-32_spritesheet.png" id="3_2s3yt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s56jj"]
+atlas = ExtResource("3_2s3yt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwf7i"]
+atlas = ExtResource("3_2s3yt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxgvn"]
+atlas = ExtResource("3_2s3yt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m08v5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s56jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwf7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxgvn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Slime" instance=ExtResource("1_sv735")]
+stats = ExtResource("2_6326o")
+
+[node name="CharacterSprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_m08v5")

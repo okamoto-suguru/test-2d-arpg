@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DungeonData" load_steps=9 format=3 uid="uid://bdtwalo5k7a2t"]
+
+[ext_resource type="Script" uid="uid://ekvwxaeowi3w" path="res://dungeons/room/RoomData.gd" id="1_cvwae"]
+[ext_resource type="Resource" uid="uid://blyk8w38qnqya" path="res://dungeons/room/res/boss/boss_room_01_data.tres" id="1_j0mif"]
+[ext_resource type="Script" uid="uid://ccj7fd5q0f12r" path="res://dungeons/DungeonData.gd" id="2_8v1a1"]
+[ext_resource type="Resource" uid="uid://bt3dsjj8wih45" path="res://dungeons/room/res/mob/room_01_data.tres" id="3_jo53e"]
+[ext_resource type="Resource" uid="uid://cr8jhbaaqfujc" path="res://dungeons/room/res/mob/room_02_data.tres" id="4_dpoi1"]
+[ext_resource type="Resource" uid="uid://di3lprm7s44kd" path="res://dungeons/room/res/mob/room_03_data.tres" id="5_2wupi"]
+[ext_resource type="Resource" uid="uid://cd58f8288k82g" path="res://dungeons/room/res/mob/room_04_data.tres" id="6_aspea"]
+[ext_resource type="Resource" uid="uid://dmbdukod22pln" path="res://dungeons/room/res/mob/room_05_data.tres" id="7_waf36"]
+
+[resource]
+script = ExtResource("2_8v1a1")
+rooms = Array[ExtResource("1_cvwae")]([ExtResource("3_jo53e"), ExtResource("4_dpoi1"), ExtResource("5_2wupi"), ExtResource("6_aspea"), ExtResource("7_waf36")])
+rooms_before_boss = 3
+boss_room = ExtResource("1_j0mif")
+metadata/_custom_type_script = "uid://ccj7fd5q0f12r"

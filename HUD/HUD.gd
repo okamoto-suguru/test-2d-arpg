@@ -1,0 +1,2 @@
+# HUD.gd
+extends CanvasLayer

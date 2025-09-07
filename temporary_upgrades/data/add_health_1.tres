@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TemporaryUpgradeData" load_steps=2 format=3 uid="uid://c5odjdkkxsc5c"]
+
+[ext_resource type="Script" uid="uid://d16vag83mj5lu" path="res://temporary_upgrades/TemporaryUpgradeData.gd" id="1_qeclr"]
+
+[resource]
+script = ExtResource("1_qeclr")
+id = "add_health_1"
+upgrade_name = "頑強の心得"
+description = "最大HPが20増加する"
+effect_type = 1
+value = 20.0
+metadata/_custom_type_script = "uid://d16vag83mj5lu"

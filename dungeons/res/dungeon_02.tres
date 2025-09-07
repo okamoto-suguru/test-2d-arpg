@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DungeonData" load_steps=5 format=3 uid="uid://belgpn64qwpjn"]
+
+[ext_resource type="Resource" uid="uid://blyk8w38qnqya" path="res://dungeons/room/res/boss/boss_room_01_data.tres" id="1_khhfy"]
+[ext_resource type="Script" uid="uid://ekvwxaeowi3w" path="res://dungeons/room/RoomData.gd" id="2_aye6c"]
+[ext_resource type="Resource" uid="uid://d01clqgq21psf" path="res://dungeons/room/res/mob/survival_room_02.tres" id="3_hsex3"]
+[ext_resource type="Script" uid="uid://ccj7fd5q0f12r" path="res://dungeons/DungeonData.gd" id="8_jfukn"]
+
+[resource]
+script = ExtResource("8_jfukn")
+rooms = Array[ExtResource("2_aye6c")]([ExtResource("3_hsex3")])
+rooms_before_boss = 1
+boss_room = ExtResource("1_khhfy")
+metadata/_custom_type_script = "uid://ccj7fd5q0f12r"

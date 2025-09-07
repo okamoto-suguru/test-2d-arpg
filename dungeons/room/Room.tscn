@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwmgqhjbb0h20"]
+
+[ext_resource type="Script" uid="uid://dmasdreo70cse" path="res://dungeons/room/Room.gd" id="1_wb6n2"]
+[ext_resource type="PackedScene" uid="uid://cmb8sc2u213xv" path="res://HUD/SurvivalWidget.tscn" id="2_lhlws"]
+[ext_resource type="Texture2D" uid="uid://cnqvbgyfwfbu5" path="res://object_128.png" id="3_e5rg2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_711ph"]
+atlas = ExtResource("3_e5rg2")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efxbe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_711ph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njhqp"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_wb6n2")
+survival_widget_scene = ExtResource("2_lhlws")
+
+[node name="EnemySpawnPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(224, 333)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(416, 328)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(237, 86)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(244, 217)
+
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(409, 182)
+
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(387, 88)
+
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(316, 34)
+
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawnPositions"]
+position = Vector2(315, 295)
+
+[node name="PlayerSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(3, 70)
+
+[node name="EntryTrigger" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="EntryTrigger"]
+position = Vector2(74, 46)
+sprite_frames = SubResource("SpriteFrames_efxbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntryTrigger"]
+position = Vector2(72, 141)
+scale = Vector2(6, 3)
+shape = SubResource("CircleShape2D_njhqp")

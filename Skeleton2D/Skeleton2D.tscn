@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b1koslhhpt8hv"]
+
+[node name="Skeleton2d" type="CharacterBody2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="hip" type="Bone2D" parent="Skeleton2D"]
+
+[node name="waist" type="Bone2D" parent="Skeleton2D/hip"]
+
+[node name="chest" type="Bone2D" parent="Skeleton2D/hip/waist"]
+
+[node name="neck" type="Bone2D" parent="Skeleton2D/hip/waist/chest"]
+
+[node name="head" type="Bone2D" parent="Skeleton2D/hip/waist/chest/neck"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hip/waist/chest/neck/head"]
+
+[node name="shoulder_L" type="Bone2D" parent="Skeleton2D/hip/waist/chest"]
+
+[node name="upper_arm_L" type="Bone2D" parent="Skeleton2D/hip/waist/chest/shoulder_L"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hip/waist/chest/shoulder_L/upper_arm_L"]
+
+[node name="fore_arm_L" type="Bone2D" parent="Skeleton2D/hip/waist/chest/shoulder_L"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hip/waist/chest/shoulder_L/fore_arm_L"]
+
+[node name="shoulder_R" type="Bone2D" parent="Skeleton2D/hip/waist/chest"]
+
+[node name="upper_arm_R" type="Bone2D" parent="Skeleton2D/hip/waist/chest/shoulder_R"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hip/waist/chest/shoulder_R/upper_arm_R"]
+
+[node name="fore_arm_R" type="Bone2D" parent="Skeleton2D/hip/waist/chest/shoulder_R"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hip/waist/chest/shoulder_R/fore_arm_R"]
+
+[node name="thigh_L" type="Bone2D" parent="Skeleton2D"]

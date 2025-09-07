@@ -1,0 +1,67 @@
+[gd_scene load_steps=22 format=3 uid="uid://osxiioycymot"]
+
+[ext_resource type="PackedScene" uid="uid://krtsv285lj8" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b267li3hkcvhe" path="res://Main.gd" id="1_yaehf"]
+[ext_resource type="PackedScene" uid="uid://44ysp4oerx7w" path="res://enemies/enemy.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bj5fvpj4831r5" path="res://HUD/hud.tscn" id="3_h2yge"]
+[ext_resource type="Resource" uid="uid://cuoh23y3repst" path="res://enemies/tres/one_shot_enemy_stats.tres" id="4_kek77"]
+[ext_resource type="PackedScene" uid="uid://d7ukbt4p756p" path="res://autoload/ResourceManager/ResourceLoader.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cqrlkvvpk75re" path="res://components/karmaorb/KarmaOrb.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c12o2wi5a2gga" path="res://components/Hitbox/hitbox.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://capiaihvma1kt" path="res://TemporaryUpgradeManager.gd" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://btxcltcng2b2p" path="res://components/DamageNumber/DamageNumber.tscn" id="10_82xsv"]
+[ext_resource type="Script" uid="uid://d16vag83mj5lu" path="res://temporary_upgrades/TemporaryUpgradeData.gd" id="10_dg77c"]
+[ext_resource type="Resource" uid="uid://dqgxek0oufm3b" path="res://temporary_upgrades/data/add_damage_1.tres" id="11_ycdy4"]
+[ext_resource type="Resource" uid="uid://biplsfhrym6cd" path="res://temporary_upgrades/data/add_damage_2.tres" id="12_vivmo"]
+[ext_resource type="PackedScene" uid="uid://b34miw06g3sho" path="res://temporary_upgrades/ui/TemporaryUpgradeScreen.tscn" id="12_w48qg"]
+[ext_resource type="Resource" uid="uid://btn8j14sp2mf5" path="res://temporary_upgrades/data/add_damage_3.tres" id="13_2cqfq"]
+[ext_resource type="Resource" uid="uid://c5odjdkkxsc5c" path="res://temporary_upgrades/data/add_health_1.tres" id="14_vivmo"]
+[ext_resource type="PackedScene" uid="uid://bwmgqhjbb0h20" path="res://dungeons/room/Room.tscn" id="16_yaehf"]
+[ext_resource type="Script" uid="uid://bxj8wttymvwcy" path="res://dungeons/DungeonManager.gd" id="18_074og"]
+[ext_resource type="AudioStream" uid="uid://ue4g4kpgpaci" path="res://dungeons/sounds/maou_game_dangeon03.ogg" id="19_82xsv"]
+[ext_resource type="Resource" uid="uid://bdtwalo5k7a2t" path="res://dungeons/res/dungeon_01.tres" id="19_cegan"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vivmo"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yaehf")
+
+[node name="DungeonLayer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
+
+[node name="OneshotEnemy" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(314, 176)
+stats = ExtResource("4_kek77")
+
+[node name="HUD" parent="." groups=["hud_canvas"] instance=ExtResource("3_h2yge")]
+
+[node name="ResourceManager" parent="." instance=ExtResource("4_lquwl")]
+karma_orb_scene = ExtResource("5_7mycd")
+player_hitbox_scene = ExtResource("6_7mycd")
+room_scene = ExtResource("16_yaehf")
+damage_number_scene = ExtResource("10_82xsv")
+
+[node name="TemporaryUpgradeManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_kek77")
+all_upgrades = Array[ExtResource("10_dg77c")]([ExtResource("11_ycdy4"), ExtResource("12_vivmo"), ExtResource("13_2cqfq"), ExtResource("14_vivmo")])
+upgrade_screen_scene = ExtResource("12_w48qg")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+position = Vector2(50, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(230, 22)
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_vivmo")
+
+[node name="DungeonManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("18_074og")
+dungeon_data = ExtResource("19_cegan")
+battle_bgm = ExtResource("19_82xsv")
+
+[connection signal="body_entered" from="TriggerArea" to="TemporaryUpgradeManager" method="_on_trigger_area_body_entered"]

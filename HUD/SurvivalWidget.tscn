@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmb8sc2u213xv"]
+
+[ext_resource type="Script" uid="uid://c21opabu34e8" path="res://HUD/SurvivalWidget.gd" id="1_whagr"]
+
+[node name="SurvivalWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+script = ExtResource("1_whagr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MessageLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "生き残れ！"
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=4 format=3 uid="uid://bd71iqmyn0bqr"]
+
+[ext_resource type="PackedScene" uid="uid://c7s8u2j1eb4bo" path="res://enemies/boss/boss.tscn" id="1_7jmuq"]
+[ext_resource type="Script" uid="uid://bo08pax40psqp" path="res://dungeons/room/wave/WaveData.gd" id="2_le5en"]
+[ext_resource type="PackedScene" uid="uid://bw3v8mjijph8v" path="res://components/spawner/res/spawner_boss_x1.tscn" id="3_le5en"]
+
+[resource]
+script = ExtResource("2_le5en")
+trigger = 0
+trigger_delay = 4.0
+enemy_spawns = Array[PackedScene]([ExtResource("1_7jmuq")])
+spawner_scenes = Array[PackedScene]([ExtResource("3_le5en")])
+metadata/_custom_type_script = "uid://bo08pax40psqp"

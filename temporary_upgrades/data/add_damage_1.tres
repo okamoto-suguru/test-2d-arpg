@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TemporaryUpgradeData" load_steps=2 format=3 uid="uid://dqgxek0oufm3b"]
+
+[ext_resource type="Script" uid="uid://d16vag83mj5lu" path="res://temporary_upgrades/TemporaryUpgradeData.gd" id="1_yjrcm"]
+
+[resource]
+script = ExtResource("1_yjrcm")
+id = "add_dmg_1"
+upgrade_name = "攻撃の心得"
+description = "攻撃力が5増加する"
+effect_type = 0
+value = 5.0
+metadata/_custom_type_script = "uid://d16vag83mj5lu"

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c12o2wi5a2gga"]
+
+[ext_resource type="Script" uid="uid://3485to17iafo" path="res://components/Hitbox/Hitbox.gd" id="1_ujbaa"]
+
+[node name="Hitbox" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_ujbaa")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 15, 0, -16, 60, -117, 76, -106, 92, -89, 104, -70, 114, -49, 122, -23, 125, 0, 122, 20, 114, 44, 105, 63, 85, 84, 68, 97, 56, 106)
+disabled = true

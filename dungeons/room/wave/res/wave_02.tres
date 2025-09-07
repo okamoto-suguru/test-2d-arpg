@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=4 format=3 uid="uid://biack45slrn00"]
+
+[ext_resource type="PackedScene" uid="uid://d4hudnhjxdpkt" path="res://enemies/robot/robot1.tscn" id="1_vs2qx"]
+[ext_resource type="Script" uid="uid://bo08pax40psqp" path="res://dungeons/room/wave/WaveData.gd" id="2_omo7p"]
+[ext_resource type="PackedScene" uid="uid://ucfdr86takh7" path="res://components/spawner/res/spawner_robot_x1.tscn" id="3_qi7hi"]
+
+[resource]
+script = ExtResource("2_omo7p")
+trigger = 0
+trigger_delay = 6.0
+enemy_spawns = Array[PackedScene]([ExtResource("1_vs2qx"), ExtResource("1_vs2qx")])
+spawner_scenes = Array[PackedScene]([ExtResource("3_qi7hi"), ExtResource("3_qi7hi")])
+metadata/_custom_type_script = "uid://bo08pax40psqp"

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cotxcwlstw2tp"]
+
+[ext_resource type="PackedScene" uid="uid://br1du2olwli4o" path="res://components/spawner/_SpawnerBase.tscn" id="1_jkhdp"]
+[ext_resource type="PackedScene" uid="uid://db8yjqq5wn2mb" path="res://enemies/human/elf1.tscn" id="2_jkhdp"]
+
+[node name="Spawner" instance=ExtResource("1_jkhdp")]
+enemy_scene = ExtResource("2_jkhdp")
+spawn_count = 3
+interval = 2.0

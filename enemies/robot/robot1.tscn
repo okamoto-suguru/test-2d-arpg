@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4hudnhjxdpkt"]
+
+[ext_resource type="PackedScene" uid="uid://44ysp4oerx7w" path="res://enemies/enemy.tscn" id="1_sthr2"]
+[ext_resource type="Texture2D" uid="uid://deap58tk42r30" path="res://enemies/robot/boy04_spacesuit01_32-32_spritesheet.png" id="2_034n7"]
+[ext_resource type="Resource" uid="uid://lrti4i686tnp" path="res://enemies/robot/robot.tres" id="2_w4wsj"]
+[ext_resource type="Resource" uid="uid://cbc7mc4n2h1ld" path="res://core/ability/tres/gun_normal_attack.tres" id="3_1fod7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s555o"]
+atlas = ExtResource("2_034n7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4wsj"]
+atlas = ExtResource("2_034n7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fod7"]
+atlas = ExtResource("2_034n7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xaa8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s555o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4wsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fod7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="robot" instance=ExtResource("1_sthr2")]
+stats = ExtResource("2_w4wsj")
+normal_attack_ability = ExtResource("3_1fod7")
+
+[node name="ShadowSprite" parent="." index="0"]
+position = Vector2(0, 8)
+
+[node name="CharacterSprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_4xaa8")
+offset = Vector2(0, -8)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RoomData" load_steps=5 format=3 uid="uid://cd58f8288k82g"]
+
+[ext_resource type="PackedScene" uid="uid://6uj0hn4pnf8e" path="res://dungeons/room/layouts/isometric/isometric_layout_02.tscn" id="1_2i7es"]
+[ext_resource type="Script" uid="uid://ekvwxaeowi3w" path="res://dungeons/room/RoomData.gd" id="2_5smtt"]
+[ext_resource type="Script" uid="uid://bo08pax40psqp" path="res://dungeons/room/wave/WaveData.gd" id="3_blbbg"]
+[ext_resource type="Resource" uid="uid://u7un05egiijd" path="res://dungeons/room/wave/res/wave_07.tres" id="4_0q445"]
+
+[resource]
+script = ExtResource("2_5smtt")
+victory_condition = 0
+waves = Array[ExtResource("3_blbbg")]([ExtResource("4_0q445")])
+layout_scene = ExtResource("1_2i7es")
+survival_time = 30.0
+metadata/_custom_type_script = "uid://ekvwxaeowi3w"

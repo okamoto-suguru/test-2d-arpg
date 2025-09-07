@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://xsbb3pybgov6"]
+
+[ext_resource type="Script" uid="uid://d2chh4fl54nmd" path="res://core/ability/AbilityData.gd" id="1_h0887"]
+[ext_resource type="PackedScene" uid="uid://c12o2wi5a2gga" path="res://components/Hitbox/res/hitbox_fan.tscn" id="1_j0yln"]
+[ext_resource type="AudioStream" uid="uid://baa6dl6cj8ci5" path="res://assets/sounds/effects/maou_se_magic_fire01.wav" id="3_eey3y"]
+[ext_resource type="AudioStream" uid="uid://wlrtxmx001qq" path="res://assets/sounds/effects/maou_se_battle18.wav" id="4_mh3rb"]
+
+[resource]
+script = ExtResource("1_h0887")
+ability_name = "剣をぶん回す"
+description = "アビリティの説明"
+sfx_activation = ExtResource("3_eey3y")
+sfx_hit = ExtResource("4_mh3rb")
+duration = 1.0
+hitbox_scene = ExtResource("1_j0yln")
+damage_multiplier = 2.0
+active_start_time = 0.2
+active_end_time = 0.8
+metadata/_custom_type_script = "uid://d2chh4fl54nmd"

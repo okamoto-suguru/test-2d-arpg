@@ -1,0 +1,123 @@
+[gd_scene load_steps=26 format=3 uid="uid://44ysp4oerx7w"]
+
+[ext_resource type="Script" uid="uid://dkft8vk4onp6c" path="res://enemies/Enemy.gd" id="1_7frlh"]
+[ext_resource type="Shader" uid="uid://chra3k4qtt1sj" path="res://player/hit_flash.gdshader" id="1_cjbay"]
+[ext_resource type="Texture2D" uid="uid://j5mukloyyq2l" path="res://assets/sprites/test_character2_sheet_walk_32_32.png" id="1_fw1ev"]
+[ext_resource type="Resource" uid="uid://dntorbufewmfx" path="res://enemies/enemy_stats.tres" id="2_4w5fm"]
+[ext_resource type="PackedScene" uid="uid://8a06nidi0vwy" path="res://enemies/components/EnemyHealthBar.tscn" id="3_0h01o"]
+[ext_resource type="Texture2D" uid="uid://bufkc8t0m421u" path="res://assets/sprites/shadow_sprite_256_128.png" id="3_28xqf"]
+[ext_resource type="Resource" uid="uid://c7t4ghuev0p5x" path="res://core/ability/tres/sword_normal_attack.tres" id="3_g67el"]
+[ext_resource type="Resource" uid="uid://rxoegmykq0wv" path="res://core/ai/tres/aggressive_melee_behavior.tres" id="3_mgey2"]
+[ext_resource type="PackedScene" uid="uid://cxhrkcxsscc4s" path="res://components/Hurtbox/hurtbox.tscn" id="3_orwns"]
+[ext_resource type="Script" uid="uid://buhqnmqvlv4a" path="res://core/StateMachine.gd" id="4_07tka"]
+[ext_resource type="Resource" uid="uid://xsbb3pybgov6" path="res://core/ability/tres/sword_special_attack.tres" id="4_ccbdt"]
+[ext_resource type="Script" uid="uid://cvo1pauymmmac" path="res://enemies/State/EnemyIdleState.gd" id="5_3t1x0"]
+[ext_resource type="Script" uid="uid://bkk0s5ra6d4qc" path="res://enemies/State/EnemyChaseState.gd" id="6_3t1x0"]
+[ext_resource type="PackedScene" uid="uid://c12o2wi5a2gga" path="res://components/Hitbox/hitbox.tscn" id="9_uba7a"]
+[ext_resource type="Script" uid="uid://thbwrq6ogsau" path="res://enemies/State/EnemyAbilityState.gd" id="11_g67el"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0h01o"]
+shader = ExtResource("1_cjbay")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjbay"]
+shader = ExtResource("1_cjbay")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7frlh"]
+atlas = ExtResource("1_fw1ev")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orwns"]
+atlas = ExtResource("1_fw1ev")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6vjd"]
+atlas = ExtResource("1_fw1ev")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07tka"]
+atlas = ExtResource("1_fw1ev")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3t1x0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7frlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orwns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6vjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07tka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epsnb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epsnb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4w5fm"]
+
+[node name="Enemy" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_0h01o")
+script = ExtResource("1_7frlh")
+health_bar_scene = ExtResource("3_0h01o")
+stats = ExtResource("2_4w5fm")
+ai_behavior = ExtResource("3_mgey2")
+normal_attack_ability = ExtResource("3_g67el")
+special_attack_ability = ExtResource("4_ccbdt")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+z_index = -1
+position = Vector2(0, 16)
+scale = Vector2(0.073, 0.073)
+texture = ExtResource("3_28xqf")
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cjbay")
+sprite_frames = SubResource("SpriteFrames_3t1x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_epsnb")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_orwns")]
+collision_layer = 32
+
+[node name="Hitbox" parent="." instance=ExtResource("9_uba7a")]
+collision_layer = 64
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_07tka")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_3t1x0")
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("6_3t1x0")
+
+[node name="Ability" type="Node" parent="StateMachine"]
+script = ExtResource("11_g67el")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_epsnb")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_4w5fm")

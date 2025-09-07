@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7s8u2j1eb4bo"]
+
+[ext_resource type="PackedScene" uid="uid://44ysp4oerx7w" path="res://enemies/enemy.tscn" id="1_ubujh"]
+[ext_resource type="Resource" uid="uid://dqjvmehgvsg82" path="res://enemies/boss/boss_stats.tres" id="2_opohk"]
+[ext_resource type="Resource" uid="uid://d1kf6g4t5hhv4" path="res://core/ai/tres/boss_ai_behavior.tres" id="3_auiwu"]
+[ext_resource type="Resource" uid="uid://b7llyfugr4bty" path="res://core/ability/tres/boss_special_attack.tres" id="4_auiwu"]
+[ext_resource type="Resource" uid="uid://d15ii5yiswpjl" path="res://core/ability/tres/boss_ultimate_attack.tres" id="4_h4k8w"]
+[ext_resource type="Script" uid="uid://ld5lbpstpism" path="res://enemies/boss/BossUltimateAttackState.gd" id="5_2tiri"]
+[ext_resource type="Script" uid="uid://cre5odmcf4xtb" path="res://enemies/boss/BossVulnerableState.gd" id="6_1s7ui"]
+
+[node name="Boss" instance=ExtResource("1_ubujh")]
+stats = ExtResource("2_opohk")
+ai_behavior = ExtResource("3_auiwu")
+special_attack_ability = ExtResource("4_auiwu")
+ultimate_attack_ability = ExtResource("4_h4k8w")
+
+[node name="CharacterSprite" parent="." index="1"]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(1.5, 1.5)
+
+[node name="Hurtbox" parent="." index="3"]
+scale = Vector2(1.5, 1.5)
+
+[node name="UltimateAttack" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("5_2tiri")
+
+[node name="Vulnerable" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("6_1s7ui")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+scale = Vector2(12, 12)
+
+[node name="CollisionShape2D" parent="AttackRange" index="0"]
+scale = Vector2(4, 4)

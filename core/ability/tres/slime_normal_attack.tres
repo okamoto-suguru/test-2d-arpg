@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://cuts7a4egrcad"]
+
+[ext_resource type="PackedScene" uid="uid://cbk0xmpbftico" path="res://components/Hitbox/hitbox_base.tscn" id="1_jioto"]
+[ext_resource type="Script" uid="uid://d2chh4fl54nmd" path="res://core/ability/AbilityData.gd" id="2_u3id2"]
+[ext_resource type="AudioStream" uid="uid://b4yqxfvx1vg3s" path="res://assets/sounds/effects/maou_se_battle14.wav" id="3_jioto"]
+[ext_resource type="AudioStream" uid="uid://wlrtxmx001qq" path="res://assets/sounds/effects/maou_se_battle18.wav" id="4_kkt3w"]
+
+[resource]
+script = ExtResource("2_u3id2")
+ability_name = "剣を振る"
+animation_name = "attack"
+description = "アビリティの説明"
+sfx_activation = ExtResource("3_jioto")
+sfx_hit = ExtResource("4_kkt3w")
+duration = 1.5
+target_type = 3
+spawn_origin = 1
+hitbox_scene = ExtResource("1_jioto")
+radius = 300.0
+damage_multiplier = 1.0
+active_start_time = 0.2
+active_end_time = 0.8
+metadata/_custom_type_script = "uid://d2chh4fl54nmd"

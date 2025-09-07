@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AbilityData" load_steps=5 format=3 uid="uid://b7llyfugr4bty"]
+
+[ext_resource type="PackedScene" uid="uid://cbk0xmpbftico" path="res://components/Hitbox/hitbox_base.tscn" id="1_8j7mm"]
+[ext_resource type="Script" uid="uid://d2chh4fl54nmd" path="res://core/ability/AbilityData.gd" id="2_6jwjx"]
+[ext_resource type="AudioStream" uid="uid://q3q1ayxcv7no" path="res://enemies/boss/sounds/maou_se_voice_tiger01.wav" id="3_8j7mm"]
+[ext_resource type="AudioStream" uid="uid://tbo4oh7vaiic" path="res://assets/sounds/effects/maou_se_battle12.wav" id="4_6jwjx"]
+
+[resource]
+script = ExtResource("2_6jwjx")
+ability_name = "ハードパンチ"
+animation_name = "attack"
+description = "アビリティの説明"
+sfx_activation = ExtResource("3_8j7mm")
+sfx_hit = ExtResource("4_6jwjx")
+duration = 1.5
+target_type = 3
+spawn_origin = 1
+hitbox_scene = ExtResource("1_8j7mm")
+radius = 300.0
+damage_multiplier = 3.0
+active_start_time = 0.2
+active_end_time = 0.8
+metadata/_custom_type_script = "uid://d2chh4fl54nmd"

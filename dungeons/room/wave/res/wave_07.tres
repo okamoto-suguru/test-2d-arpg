@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=5 format=3 uid="uid://u7un05egiijd"]
+
+[ext_resource type="PackedScene" uid="uid://db8yjqq5wn2mb" path="res://enemies/human/elf1.tscn" id="1_kj54w"]
+[ext_resource type="Script" uid="uid://bo08pax40psqp" path="res://dungeons/room/wave/WaveData.gd" id="3_atdwk"]
+[ext_resource type="PackedScene" uid="uid://cotxcwlstw2tp" path="res://components/spawner/res/spawner_elf_x3.tscn" id="3_ha1fb"]
+[ext_resource type="PackedScene" uid="uid://c6grkf2gcd7b1" path="res://components/spawner/res/spawner_slime_x3.tscn" id="4_atdwk"]
+
+[resource]
+script = ExtResource("3_atdwk")
+trigger = 0
+trigger_delay = 4.0
+enemy_spawns = Array[PackedScene]([ExtResource("1_kj54w"), ExtResource("1_kj54w"), ExtResource("1_kj54w")])
+spawner_scenes = Array[PackedScene]([ExtResource("3_ha1fb"), ExtResource("4_atdwk"), ExtResource("4_atdwk")])
+metadata/_custom_type_script = "uid://bo08pax40psqp"

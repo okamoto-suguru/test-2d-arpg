@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqrlkvvpk75re"]
+
+[ext_resource type="Script" uid="uid://b1cceetbsfor1" path="res://components/karmaorb/KarmaOrb.gd" id="1_3bb3u"]
+[ext_resource type="Texture2D" uid="uid://dirph4bei2ei2" path="res://components/karmaorb/karmaorb.png" id="2_73vdv"]
+[ext_resource type="Texture2D" uid="uid://bufkc8t0m421u" path="res://assets/sprites/shadow_sprite_256_128.png" id="2_p7km5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7km5"]
+atlas = ExtResource("2_73vdv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iejb4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7km5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sspwg"]
+
+[node name="KarmaOrb" type="Area2D"]
+collision_layer = 128
+script = ExtResource("1_3bb3u")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(0, 6)
+scale = Vector2(0.037, 0.037)
+texture = ExtResource("2_p7km5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_iejb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sspwg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

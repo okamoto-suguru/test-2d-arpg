@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=6 format=3 uid="uid://df73uy7by1hte"]
+
+[ext_resource type="PackedScene" uid="uid://db8yjqq5wn2mb" path="res://enemies/human/elf1.tscn" id="1_321qv"]
+[ext_resource type="PackedScene" uid="uid://c6cswb2jeyldo" path="res://enemies/slime/slime1.tscn" id="2_f1epy"]
+[ext_resource type="Script" uid="uid://bo08pax40psqp" path="res://dungeons/room/wave/WaveData.gd" id="3_jsvr7"]
+[ext_resource type="PackedScene" uid="uid://dh7uwvw8g65k0" path="res://components/spawner/res/spawner_elf_x1.tscn" id="4_jsvr7"]
+[ext_resource type="PackedScene" uid="uid://c6grkf2gcd7b1" path="res://components/spawner/res/spawner_slime_x3.tscn" id="5_3osfb"]
+
+[resource]
+script = ExtResource("3_jsvr7")
+trigger = 0
+trigger_delay = 4.0
+enemy_spawns = Array[PackedScene]([ExtResource("1_321qv"), ExtResource("2_f1epy"), ExtResource("2_f1epy")])
+spawner_scenes = Array[PackedScene]([ExtResource("4_jsvr7"), ExtResource("5_3osfb")])
+metadata/_custom_type_script = "uid://bo08pax40psqp"

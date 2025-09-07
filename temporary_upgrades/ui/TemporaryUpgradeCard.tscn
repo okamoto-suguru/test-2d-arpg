@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://6q2sqbwqdnum"]
+
+[ext_resource type="Script" uid="uid://btx065pvjy63u" path="res://temporary_upgrades/ui/temporary_upgrade_card.gd" id="1_q6prq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6prq"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="TemporaryUpgradeCard" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q6prq")
+script = ExtResource("1_q6prq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "選択"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj5fvpj4831r5"]
+
+[ext_resource type="Script" uid="uid://bgjaq6m4ie2gn" path="res://HUD/HUD.gd" id="1_nysna"]
+[ext_resource type="PackedScene" uid="uid://b0p1hqe2unvao" path="res://components/BaseResourceBar/_BaseResourceBar.tscn" id="2_oo0fn"]
+[ext_resource type="Script" uid="uid://dsuom333swe3h" path="res://components/BaseResourceBar/resource/HealthBar.gd" id="3_5ysmq"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_nysna")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_oo0fn")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("3_5ysmq")

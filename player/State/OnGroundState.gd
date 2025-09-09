@@ -44,9 +44,9 @@ func handle_input(event: InputEvent) -> void:
 			_transition_to("Ability", {"ability_data": owner.normal_attack_ability})
 			return
 		# 将来的に特殊攻撃ボタンを追加する場合
-		# if state_machine.can_process_input and event.is_action_pressed("special_attack"):
-		# 	_transition_to("Ability", {"ability_data": owner.special_attack_ability})
-		# 	return
+		if state_machine.can_process_input and event.is_action_pressed("special_attack"):
+			_transition_to("Ability", {"ability_data": owner.special_attack_ability})
+			return
 
 	# 子State自身の入力処理は常に呼ぶ
 	current_child_state.handle_input(event)
